@@ -1,0 +1,4 @@
+[tools]
+awscli = "latest"
+mc = "latest"
+python = "3.11"

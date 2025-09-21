@@ -1,0 +1,27 @@
+[package]
+name = "seekfs-daemon"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "seekfs cache daemon with HTTP Blob API skeleton"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1.47", features = ["rt-multi-thread", "macros"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+seekfs-core = { path = "../seekfs-core" }
+seekfs-l2 = { path = "../seekfs-l2" }
+seekfs-proto = { path = "../seekfs-proto" }
+futures = "0.3"
+flate2 = "1"
+bytes = "1"
+crc32c = "0.6"
+
+[features]
+default = []
+crt = ["seekfs-core/crt"]
+slabfile = ["seekfs-l2/slabfile"]

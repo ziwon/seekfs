@@ -1,0 +1,12 @@
+[workspace]
+members = [
+  "crates/seekfs-core",
+  "crates/seekfs-l2",
+  "crates/seekfs-daemon",
+  "crates/seekfs-fuse",
+  "crates/seekfs-bench",
+  "crates/seekfs-proto",
+  "crates/seekfs-tools",
+]
+resolver = "2"
+

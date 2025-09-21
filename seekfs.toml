@@ -1,0 +1,25 @@
+[cache]
+slab_size_mib = 8
+l1_memory_gib = 32
+l2_ssd_gib = 512
+
+[cache.l2]
+# segmentstore (disk) | mem | blobdb
+backend = "segmentstore"
+segment_path = "/var/lib/seekfs/l2"
+
+[api]
+listen = "0.0.0.0:7070"
+
+[s3]
+engine = "sdk"           # sdk | crt
+endpoint = "http://localhost:9000"  # MinIO for local testing; prefer localhost over 127.0.0.1
+region = "us-east-1"
+bucket = "seekfs"
+access_key_id = "minioadmin"
+secret_access_key = "minioadmin"
+get_budget_per_sec = 200
+range_coalesce_max_mib = 32
+max_inflight_gets = 128
+retry_max_attempts = 3
+retry_initial_backoff_ms = 100

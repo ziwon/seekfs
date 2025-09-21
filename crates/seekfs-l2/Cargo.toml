@@ -1,0 +1,23 @@
+[package]
+name = "seekfs-l2"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "L2 cache backends for seekfs (mem stub; blobdb|slabfile placeholders)"
+
+[dependencies]
+seekfs-core = { path = "../seekfs-core" }
+parking_lot = "0.12"
+serde = { version = "1", features = ["derive"] }
+sha2 = { version = "0.10", optional = true }
+hex = { version = "0.4", optional = true }
+redb = { version = "2", optional = true }
+
+[target.'cfg(unix)'.dependencies]
+tempfile = { version = "3", optional = true }
+
+[features]
+default = ["mem"]
+mem = []
+blobdb = []
+slabfile = [ "dep:sha2", "dep:hex", "dep:tempfile", "dep:redb" ]

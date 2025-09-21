@@ -1,0 +1,13 @@
+[package]
+name = "seekfs-fuse"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "FUSE client scaffolding for seekfs (placeholder)"
+
+[lib]
+name = "seekfs_fuse"
+path = "src/lib.rs"
+
+[dependencies]
+

@@ -1,0 +1,16 @@
+# MinIO Helm values: ephemeral data at /data (emptyDir)
+mode: standalone
+replicas: 1
+
+persistence:
+  enabled: false
+
+# Some chart versions expose this to control container mountPath
+mountPath: /data
+
+service:
+  type: ClusterIP
+
+consoleService:
+  type: ClusterIP
+

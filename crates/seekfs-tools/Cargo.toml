@@ -1,0 +1,27 @@
+[package]
+name = "seekfs-tools"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "CLI tools for seekfs (ctl)"
+
+[[bin]]
+name = "seekfs-ctl"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+anyhow = "1"
+toml = "0.8"
+serde = { version = "1", features = ["derive"] }
+seekfs-core = { path = "../seekfs-core" }
+aws-config = { version = "1.8", features = ["behavior-version-latest"] }
+aws-sdk-s3 = "1.106"
+sha2 = "0.10"
+crc32c = "0.6"
+flate2 = "1"
+bytes = "1"
+hex = "0.4"
+serde_json = "1"

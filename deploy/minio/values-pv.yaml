@@ -1,0 +1,27 @@
+# MinIO Helm values: persistent volume mounted at /data
+mode: standalone
+replicas: 1
+
+persistence:
+  enabled: true
+  size: 20Gi
+  # Set to your cluster's storage class. Empty uses the default StorageClass
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+
+# Some chart versions expose this to control container mountPath
+mountPath: /data
+
+service:
+  type: ClusterIP
+
+consoleService:
+  type: ClusterIP
+
+# Optionally create initial buckets (if supported by your chart version)
+# buckets:
+#   - name: seekfs
+#     policy: none
+#     purge: false
+
